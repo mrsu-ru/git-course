@@ -1,0 +1,270 @@
+\documentclass[12pt,a4paper,openany]{book}
+\usepackage[utf8]{inputenc} % кодировка
+\usepackage[english, russian]{babel} % Русские и английские переносы
+\usepackage{cite}              % для корректного оформления литературы
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage[breakwords]{truncate}
+\usepackage{units}
+\usepackage{titletoc}% http://ctan.org/pkg/titletoc
+\usepackage{lastpage}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{makeidx}
+
+%\usepackage[]{caption}
+
+\usepackage{geometry}
+\geometry{papersize={21cm, 29.7cm}}
+\geometry{left=2cm}
+\geometry{right=2cm}
+\geometry{top=3cm}
+\geometry{bottom=3cm}
+
+\lstdefinelanguage{shell}{
+	morekeywords={cd,ls,mkdir,cp,touch, make},
+	otherkeywords={=>,<-,<\%,<:,>:,@},
+	sensitive=true,
+	morecomment=[l]{\#},
+	morestring=[b]",
+	morestring=[b]',
+	morestring=[b]"""
+}
+
+
+\usepackage[most]{tcolorbox}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.3,0.3,0.3}
+\definecolor{lightgray}{rgb}{0.97,0.97,0.97}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\tcbset{
+    frame code={}
+    left title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!10,
+    colframe=red!75,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=0mm,
+    boxsep=5pt,
+    %arc=0pt,outer arc=0pt,
+    leftrule=0cm,
+    }
+
+\lstset{ %
+	backgroundcolor=\color[rgb]{0.98,0.98,0.98},
+	frame=lines,
+	%captionpos=b,
+	language=C++,
+	aboveskip=3mm,
+	belowskip=7mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\bf\color{black},
+	commentstyle=\color{dkgreen},
+	stringstyle=\sf\color{gray},
+	breaklines=true,
+	texcl=true,
+	%breakatwhitespace=true,
+	tabsize=3,
+	%frame=none,
+extendedchars=true,
+literate={Ö}{{\"O}}1
+{Ä}{{\"A}}1
+{Ü}{{\"U}}1
+{ß}{{\ss}}1
+{ü}{{\"u}}1
+{ä}{{\"a}}1
+{ö}{{\"o}}1
+{~}{{\textasciitilde}}1
+{а}{{\selectfont\char224}}1
+{б}{{\selectfont\char225}}1
+{в}{{\selectfont\char226}}1
+{г}{{\selectfont\char227}}1
+{д}{{\selectfont\char228}}1
+{е}{{\selectfont\char229}}1
+{ё}{{\"e}}1
+{ж}{{\selectfont\char230}}1
+{з}{{\selectfont\char231}}1
+{и}{{\selectfont\char232}}1
+{й}{{\selectfont\char233}}1
+{к}{{\selectfont\char234}}1
+{л}{{\selectfont\char235}}1
+{м}{{\selectfont\char236}}1
+{н}{{\selectfont\char237}}1
+{о}{{\selectfont\char238}}1
+{п}{{\selectfont\char239}}1
+{р}{{\selectfont\char240}}1
+{с}{{\selectfont\char241}}1
+{т}{{\selectfont\char242}}1
+{у}{{\selectfont\char243}}1
+{ф}{{\selectfont\char244}}1
+{х}{{\selectfont\char245}}1
+{ц}{{\selectfont\char246}}1
+{ч}{{\selectfont\char247}}1
+{ш}{{\selectfont\char248}}1
+{щ}{{\selectfont\char249}}1
+{ъ}{{\selectfont\char250}}1
+{ы}{{\selectfont\char251}}1
+{ь}{{\selectfont\char252}}1
+{э}{{\selectfont\char253}}1
+{ю}{{\selectfont\char254}}1
+{я}{{\selectfont\char255}}1
+{А}{{\selectfont\char192}}1
+{Б}{{\selectfont\char193}}1
+{В}{{\selectfont\char194}}1
+{Г}{{\selectfont\char195}}1
+{Д}{{\selectfont\char196}}1
+{Е}{{\selectfont\char197}}1
+{Ё}{{\"E}}1
+{Ж}{{\selectfont\char198}}1
+{З}{{\selectfont\char199}}1
+{И}{{\selectfont\char200}}1
+{Й}{{\selectfont\char201}}1
+{К}{{\selectfont\char202}}1
+{Л}{{\selectfont\char203}}1
+{М}{{\selectfont\char204}}1
+{Н}{{\selectfont\char205}}1
+{О}{{\selectfont\char206}}1
+{П}{{\selectfont\char207}}1
+{Р}{{\selectfont\char208}}1
+{С}{{\selectfont\char209}}1
+{Т}{{\selectfont\char210}}1
+{У}{{\selectfont\char211}}1
+{Ф}{{\selectfont\char212}}1
+{Х}{{\selectfont\char213}}1
+{Ц}{{\selectfont\char214}}1
+{Ч}{{\selectfont\char215}}1
+{Ш}{{\selectfont\char216}}1
+{Щ}{{\selectfont\char217}}1
+{Ъ}{{\selectfont\char218}}1
+{Ы}{{\selectfont\char219}}1
+{Ь}{{\selectfont\char220}}1
+{Э}{{\selectfont\char221}}1
+{Ю}{{\selectfont\char222}}1
+{Я}{{\selectfont\char223}}1
+{і}{{\selectfont\char105}}1
+{ї}{{\selectfont\char168}}1
+{є}{{\selectfont\char185}}1
+{ґ}{{\selectfont\char160}}1
+{І}{{\selectfont\char73}}1
+{Ї}{{\selectfont\char136}}1
+{Є}{{\selectfont\char153}}1
+{Ґ}{{\selectfont\char128}}1
+}
+
+
+\makeatletter%ставим, чтобы знак @ воспринимался как буква, а не как команда
+
+\renewcommand{\@oddhead}{\hbox to 135mm{\hrulefill\raisebox{2.2mm}{\underline{\strut{\small\bfseries\slshape\truncate{170mm}{\rightmark}}}}}}%верхний колонтитул для нечетных страниц
+
+\renewcommand{\@oddfoot}{\hbox to 170mm{\hfil\thepage\hfil}}%%нижний колонтитул для нечетных страниц
+
+%\renewcommand{\@evenhead}{\hbox to 135mm{\raisebox{2.2mm}{\underline{\strut{\small\bfseries\slshape \thechapter}}}\hrulefill}}%верхний колонтитул для четных страниц.
+
+\renewcommand{\@evenhead}{\hbox to 135mm{\raisebox{2.2mm}{\underline{\strut{\small\bfseries\slshape\truncate{170mm}{\leftmark}}}}\hrulefill}}%верхний колонтитул для четных страниц.
+
+\renewcommand{\@evenfoot}{\hbox to 170mm{\hfil\thepage\hfil}}%нижний колонтитул для четных страниц
+
+
+
+\renewcommand{\@biblabel}[1]{#1.} % Заменяем библиографию с квадратных скобок на точку:
+
+
+\makeatother% возвращаем знаку @ командные свойства
+
+\titlecontents{chapter}% <section-type>
+  [0pt]% <left>
+  {\addvspace{1em}}% <above-code>
+  {\bfseries\chaptername\ \thecontentslabel\quad}% <numbered-entry-format>
+  {\bfseries\hspace{-0.6cm}\thecontentslabel\quad}% <numberless-entry-format>
+  {\hfill\contentspage}% <filler-page-format>
+
+
+\renewcommand{\thechapter}{\arabic{chapter}.}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}.}
+\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}.}
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+
+\renewcommand{\chaptermark}[1]{\markboth{\emph{\chaptername\ \thechapter\ #1}}{}}
+
+\renewcommand{\sectionmark}[1]{\markright{\emph{\thesection\ #1}}}
+
+\makeatletter
+\long\def\@makecaption#1#2{%       
+	\vskip\abovecaptionskip\footnotesize
+	\sbox\@tempboxa{#2}         % place contents of #2 into a scratch TeX box
+	\ifdim \wd\@tempboxa = 0pt  % test if scratch box has zero width
+	\centering #1 \par       % if yes, typeset only #1 (the float's name and number)
+	\else                       % if no, proceed with default definition
+	\sbox\@tempboxa{#1. #2}%
+	\ifdim \wd\@tempboxa >\hsize
+	#1. #2\par
+	\else
+	\global \@minipagefalse
+	\hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+	\fi
+	\fi
+	\vskip\belowcaptionskip}
+
+%\renewcommand{\@algocf@capt@plain}{above}% formerly {bottom}
+
+
+\makeatother
+
+%\author{Жалнин Р.В., Масягин В.Ф., Панюшкина Е.Н., Пескова Е.Е.}
+%\title{Использование технологии CUDA для решения задач математической физики}
+
+\newcommand{\zhrvAuthors}{Пушкин А.С.}
+\newcommand{\zhrvTitle}{Капитанская дочка}
+\newcommand{\zhrvISBN}{978-5-901661-41-3}
+
+\newenvironment{zhgit}{\vskip 10pt\begin{tcolorbox}\begin{tabular}{ll}\noindent\parbox[c]{20pt}{\includegraphics*[scale=0.06]{img/Git-Icon-Black.png}} & \tt\small
+}
+{
+\end{tabular}\end{tcolorbox}\vskip 10pt}
+
+\newcommand{\pard}[2]{\frac{\displaystyle\partial #1}{\displaystyle\partial #2}}
+\newcommand{\pardtwo}[2]{\frac{\displaystyle\partial^2 #1}{\displaystyle\partial #2^2}}
+
+
+\makeindex
+
+\begin{document}
+\renewcommand{\contentsname}{\vspace{0mm}Содержание}
+\renewcommand{\thelstlisting}{\thesection\arabic{lstlisting}}
+
+\fontsize{14}{16pt}\selectfont
+	\include{title}
+	\tableofcontents
+	\include{chapter1}
+	\include{chapter2}
+	\include{chapter3}
+	\include{chapter4}
+	\include{chapter5}
+	\include{chapter6}
+	\include{chapter7}
+	\include{chapter8}
+	\include{chapter9}
+	\include{chapter10}
+	\include{chapter11}
+	\include{chapter12}
+	\include{chapter13}
+	\include{chapter14}
+	\include{chapter15}
+	\include{publ}
+\end{document}
